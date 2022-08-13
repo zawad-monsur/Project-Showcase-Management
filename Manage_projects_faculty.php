@@ -21,7 +21,8 @@
 		</tr> 
 			  <th>Project Title </th> 
               <th>Description</th> 
-              <th>Category </th> 
+              <th>Category </th>
+              <th></th> 
                
 
                    
@@ -39,6 +40,12 @@
 		<td><?php echo $rows['project_title']; ?></td> 
         <td><?php echo $rows['description']; ?></td> 
         <td><?php echo $rows['category']; ?></td> 
+        <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Group Details
+                    </button></td>
+        <td><button type="button" class="btn btn-primary">
+                        Show project details
+            </button></td>
         </tr>
         
         
