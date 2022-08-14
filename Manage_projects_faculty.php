@@ -90,9 +90,12 @@
                             </div>
                         </div>
                     </div></td>
-        <td><button type="button" class="btn btn-primary">
-                        Show project details
-            </button></td>
+        <td>
+                <form name = "confirm" action="project_details.php" method="post">
+                    <input type="hidden" name="project_id" value="<?php echo $rows['project_title']; ?>">
+                    
+                <input type="submit" class="btn btn-primary" name = "submit" value="Show Project details">
+            </td>
         </tr>
         
         
