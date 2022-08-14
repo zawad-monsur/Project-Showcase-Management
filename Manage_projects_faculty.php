@@ -92,7 +92,8 @@
                     </div></td>
         <td>
                 <form name = "confirm" action="project_details.php" method="post">
-                    <input type="hidden" name="project_id" value="<?php echo $rows['project_title']; ?>">
+                    <input type="hidden" name="project_id" value="<?php echo $rows['project_id']; ?>">
+                    
                     
                 <input type="submit" class="btn btn-primary" name = "submit" value="Show Project details">
             </td>
