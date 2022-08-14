@@ -21,8 +21,9 @@
 			  <th>Update no </th> 
               <th>Description</th> 
               <th>Feedback </th>
-              <th>Status</th> 
-              <th></th> 
+              <th>Status</th>
+              <th>Add comment/feedback</th> 
+              <th>Change status</th> 
             </tr>
       <?php      
     while($rows=mysqli_fetch_array($rs)) 
@@ -32,6 +33,26 @@
         <td><?php echo $rows['description']; ?></td> 
         <td><?php echo $rows['feedback']; ?></td> 
         <td><?php echo $rows['status']; ?></td> 
+        <td>
+                <form name = "comment_update" action="" method="post">
+                    <input type="textfield" name="project_id" >
+                    
+                    
+                <input type="submit" class="btn btn-primary" name = "submit_comment" value="Update comment">
+            </td>
+        <td>
+        <form name="update_status" action="" method="post">
+                        <select name="status_update" class="form-select">
+                            <option selected>Open this select menu</option>
+                            <option value="accepted">Accept</option>
+                            <option value="declined">Decline</option>
+
+                        </select>
+                        <div class="text-center my-4">
+                         <input type="submit" value="update_status"> </div>
+                    </form>
+
+            </td>
 
         
     </tr> 
@@ -41,3 +62,8 @@
     
 </body>
 </html>
+<style>
+td {
+  text-align: center;
+}
+</style>
