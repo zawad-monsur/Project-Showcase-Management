@@ -26,7 +26,7 @@
      session_start();
 
      include_once 'dbconnect.php';
-     $sql = "SELECT * FROM projects WHERE faculty_id = 1";
+     $sql = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE faculty_id = 1 GROUP BY p.project_id";
     ?>
      <table align="center" style="width:90%; line-height:200%;"> 
 	<tr> 
@@ -64,8 +64,24 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
+                                <h2><?php echo $rows['project_title']; ?></h2>
+                                <h2>Group Name : <?php echo $rows['group_name']; ?></h2>
+                                <h4>Group members:</h4>
 
-                                adasdasda
+                                    <?php
+                                
+                                $sql1 = "SELECT * FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) JOIN student AS s ON (g.student_id=s.student_id)  WHERE faculty_id = 1";
+                                $rs1 = $conn-> query($sql1); 
+                                
+                                while($rows_modal=mysqli_fetch_array($rs1)) 
+                                { 
+                                    ?>
+                                     <?php echo $rows_modal['student_id']; ?> <?php echo $rows_modal['name']; ?> <br>
+
+
+                                <?php
+                                }?>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
