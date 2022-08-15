@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
     <?php
@@ -34,12 +35,17 @@
         <td><?php echo $rows['feedback']; ?></td> 
         <td><?php echo $rows['status']; ?></td> 
         <td>
-                <form name = "comment_update" action="" method="post">
-                    <input type="textfield" name="project_id" >
+                <form name = "comment_update" action="api/update_comment.php" method="post">
+                    <input type="textfield" name="feedback" >
+                    <input type="hidden" name="project_id" id="project_id" value="<?php echo $rows['project_id']; ?>">
+                    <input type="hidden" name="update_no"  id="update_no" value="<?php echo $rows['update_no']; ?>">
                     
                     
-                <input type="submit" class="btn btn-primary" name = "submit_comment" value="Update comment">
+                <input type="submit" class="btn btn-primary" name = "submit" onclick="submitForm();" value="Update Feedback">
             </td>
+            <!---- Script -->
+
+           
         <td>
         <form name="update_status" action="" method="post">
                         <select name="status_update" class="form-select">
