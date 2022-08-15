@@ -48,11 +48,12 @@
             
          while($rows=mysqli_fetch_array($rs)) 
 		{ 
+            $project_id = $rows['project_id'];
 		?>
         <tr> 
-		<td><?php echo $rows['project_title']; ?></td> 
+		<td><?php echo $rows['project_title']; echo $rows['project_id'] ?></td> 
         <td><?php echo $rows['description']; ?></td> 
-        <td><?php echo $rows['category']; ?></td> 
+        <td><?php echo $rows['category'];  ?></td> 
         <td><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         Group Details
                     </button>
@@ -70,7 +71,7 @@
 
                                     <?php
                                 
-                                $sql1 = "SELECT * FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) JOIN student AS s ON (g.student_id=s.student_id)  WHERE faculty_id = 1";
+                                $sql1 = "SELECT * FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) JOIN student AS s ON (g.student_id=s.student_id)  WHERE project_id = $project_id";
                                 $rs1 = $conn-> query($sql1); 
                                 
                                 while($rows_modal=mysqli_fetch_array($rs1)) 
