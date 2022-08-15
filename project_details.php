@@ -41,13 +41,17 @@
                     <input type="hidden" name="update_no"  id="update_no" value="<?php echo $rows['update_no']; ?>">
                     
                     
-                <input type="submit" class="btn btn-primary" name = "submit" onclick="submitForm();" value="Update Feedback">
+                <input type="submit" class="btn btn-primary" name = "submit" value="Update Feedback">
+                </form>
             </td>
+        
             <!---- Script -->
 
            
         <td>
-        <form name="update_status" action="" method="post">
+        <form name="update_status" action="api/update_status.php" method="post">
+                    <input type="hidden" name="project_id" id="project_id" value="<?php echo $rows['project_id']; ?>">
+                    <input type="hidden" name="update_no"  id="update_no" value="<?php echo $rows['update_no']; ?>">
                         <select name="status_update" class="form-select">
                             <option selected>Open this select menu</option>
                             <option value="accepted">Accept</option>
