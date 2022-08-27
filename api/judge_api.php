@@ -1,8 +1,7 @@
 <?php
+    $room_no = $_GET['room_no'];
     include_once 'dbconnect.php';
-    $content = [];
-    $status = 'OK';
-    $sql = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE category = 'Software Lab' AND p.room_number = 0 GROUP BY p.project_id";
+    $sql = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE category = 'Software Lab' AND p.room_number = $room_no GROUP BY p.project_id";
     $rs = $conn-> query($sql); 
     while($rows=mysqli_fetch_array($rs)) 
     {
