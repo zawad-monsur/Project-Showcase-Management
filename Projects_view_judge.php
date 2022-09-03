@@ -26,12 +26,20 @@ function getData() {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("data").innerHTML = this.responseText;
+
       }
     };
     xmlhttp.open("GET","api/judge_api.php?room_no="+room_no,true);
     xmlhttp.send();
+
+    
   
 }
+setInterval(function(){
+	getData();
+	// 1sec
+},1000);
+    
 </script>
 </head>
 <body>
