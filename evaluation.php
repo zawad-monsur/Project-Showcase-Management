@@ -61,7 +61,29 @@
     <?php
     }
     ?>
+    </table>
+    <button onclick = 'getForm()'>Evaluation Form</button>
+    <script>
+        function getForm() {
+            let project_id = <?php echo $project_id?>; 
+            console.log("GET","api/judge_api.php?project_id="+project_id);
+            
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("form").innerHTML = this.responseText;
+
+            }
+            };
+            xmlhttp.open("GET","api/evaluation_form.php?project_id="+project_id,true);
+            xmlhttp.send();
+
     
+  
+}
+
+</script>
+<div id="form"></div>
 </body>
 </html>
 <style>

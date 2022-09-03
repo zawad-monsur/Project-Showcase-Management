@@ -1,4 +1,6 @@
 <?php
+$project_id = $_GET['project_id'];
+echo $project_id;
 
 if(isset($_POST['b1']))
 {
@@ -22,7 +24,7 @@ echo "avg = $average";
 </head>
 
 <body>
-<form action="evaluation_form.php" method="post">
+<form action="api/evaluation_form.php" method="post">
 Project Idea : <input type="int" name="idea"/>
 </br>
 Features : <input type="int" name="features"/>
