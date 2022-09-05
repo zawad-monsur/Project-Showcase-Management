@@ -5,7 +5,6 @@ session_start();
 include("dbconnect.php");
 	$project_title= $_POST["PROJECT_TITLE"];
 	$group_id= $_POST["GROUP_ID"];
-	
 	$category= $_POST["CATEGORY"];
     $faculty_id = $_POST["FACULTY_ID"];
     $description = $_POST["description"];
