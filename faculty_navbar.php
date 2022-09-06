@@ -18,7 +18,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Courses </a>
+                <a class="nav-link" href="Manage_projects_faculty.php">Projects </a>
             </li>
 
             <li class="nav-item">

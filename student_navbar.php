@@ -17,11 +17,11 @@
                 <a class="nav-link active" href="student_dashboard.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/project_management/team_page.php">Team</a>
+                <a class="nav-link" href="team_modification.php">Team</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">Project </a>
+                <a class="nav-link" href="Manage_projects_students.php">Project </a>
             </li>
 
             <li class="nav-item">
