@@ -27,14 +27,26 @@
 
             //save to database
             //echo $name . " " . $password;
-            $query = "insert into student (student_id,name, email, password) values ('$student_id','$name', '$email', '$password')";
+            $query = "SELECT * FROM student WHERE student_id = '$student_id' OR email = '$email'";
+            $result1 = mysqli_query($conn, $query);
 
-            mysqli_query($conn, $query);
+            if (mysqli_num_rows($result1)) {
+                echo '<script>alert("User Already Exist")</script>';
+            } else {
+                $query = "insert into student (student_id,name, email, password) values ('$student_id','$name', '$email', '$password')";
 
-            header("Location: login.php");
+                $result = mysqli_query($conn, $query);
+
+                if ($result) {
+                    echo '<script>alert("Successfull")</script>';
+                    header("Location: login.php");
+                }
+            }
+
+
             die;
         } else {
-            echo "Please enter some valid information!";
+            echo '<script>alert("Please enter some valid information!")</script>';
         }
     }
     ?>
@@ -93,12 +105,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function myFunction() {
-            alert("Student Registered Successfully!");
-        }
-    </script>
 
 </body>
 

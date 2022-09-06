@@ -42,7 +42,7 @@
         <td><?php echo $rows['group_category']; ?></td> 
         <td><?php echo $rows['description']; ?></td> 
         <td>
-        <form name="update_status" action="" method="post">
+        <form name="update_status" action="api/update_status.php" method="post">
                     <input type="hidden" name="project_id" id="project_id" value="<?php echo $rows['project_id']; ?>">
                         <select name="status_update" class="form-select">
                             <option selected>Open this select menu</option>
