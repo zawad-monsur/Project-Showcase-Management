@@ -24,6 +24,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Profile</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="judge">Judge Panel</a>
+            </li>
+
 
             <li class="nav-item">
                 <a class="nav-link" href="logout.php">Logout</a>
