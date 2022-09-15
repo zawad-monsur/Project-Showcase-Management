@@ -17,20 +17,22 @@
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         //something was posted
-        $group_id = $_POST['group_id'];
         $student_id = $_POST['student_id'];
         $group_name = $_POST['group_name'];
         $group_category = $_POST['group_category'];
 
         echo "hoise!!!!";
 
-        if (!empty($group_id) && !empty($student_id) && !empty($group_name) && !empty($group_category)) {
+        if (!empty($student_id) && !empty($group_name) && !empty($group_category)) {
 
-            //save to database
-            //echo $name . " " . $password;
-            $query = "insert into groups (group_id,student_id, group_name, group_category) values ('$group_id','$student_id', '$group_name', '$group_category')";
+            $student_ids = explode(',',$student_id);
+            foreach($student_ids as $student_id){
+                $query = "insert into groups (group_id,student_id, group_name, group_category) values ('$group_id','$student_id', '$group_name', '$group_category')";
 
-            mysqli_query($conn, $query);
+                mysqli_query($conn, $query);
+
+            }
+            
 
             header("Location: login.php");
             die;
@@ -50,10 +52,6 @@
 
                         <div>
                             <p class="h2">Create your team.</p>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" name="group_id" id="group_id" class="form-control  input_user" placeholder="Group ID" required>
                         </div>
 
                         <div class="input-group mb-3">
