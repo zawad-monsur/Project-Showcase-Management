@@ -24,16 +24,29 @@
         if (!empty($faculty_email) && !empty($faculty_id) && !empty($faculty_password)) {
 
             //save to database
-            $query = "insert into faculty (faculty_id, faculty_email, faculty_password) values ('$faculty_id', '$faculty_email', '$faculty_password')";
+            $query = "SELECT * FROM faculty WHERE faculty_id = '$faculty_id' OR faculty_email = '$faculty_email'";
+            $result1 = mysqli_query($conn, $query);
 
-            mysqli_query($conn, $query);
+            if (mysqli_num_rows($result1)) {
+                echo '<script>alert("User Already Exist")</script>';
+            } else {
+                $query = "insert into faculty (faculty_id, faculty_email, faculty_password) values ('$faculty_id', '$faculty_email', '$faculty_password')";
 
-            header("Location: login_faculty.php");
+                $result = mysqli_query($conn, $query);
+
+                if ($result) {
+                    echo '<script>alert("Successfull")</script>';
+                    header("Location: login.php");
+                }
+            }
+
+
             die;
         } else {
-            echo "Please enter some valid information!";
+            echo '<script>alert("Please enter some valid information!")</script>';
         }
     }
+
     ?>
 
     <div class="container h-100">
@@ -83,12 +96,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function mySFunction() {
-            alert("Faculty Registered Successfully!");
-        }
-    </script>
 
 </body>
 

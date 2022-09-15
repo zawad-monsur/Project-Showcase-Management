@@ -22,7 +22,7 @@
     $sql = "SELECT * FROM updates WHERE project_id = $project_id";
     $rs = $conn-> query($sql);
     
-    
+    echo $project_id;
     ?>
     <h2><?php echo $result['project_title']; ?></h2>
     <h3>Group Name : <?php echo $result['group_name']; ?></h3>
