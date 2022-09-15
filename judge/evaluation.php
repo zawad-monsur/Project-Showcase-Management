@@ -66,7 +66,7 @@
     <script>
         function getForm() {
             let project_id = <?php echo $project_id?>; 
-            console.log("GET","api/judge_api.php?project_id="+project_id);
+           
             
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
@@ -75,7 +75,7 @@
 
             }
             };
-            xmlhttp.open("GET","api/evaluation_form.php?project_id="+project_id,true);
+            xmlhttp.open("GET","../api/evaluation_form.php?project_id="+project_id,true);
             xmlhttp.send();
 
     

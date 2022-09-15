@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 if ($user_data['password'] === $judge_password) {
 
-                    $_SESSION['judge_id'] = $user_data['judge_id'];
+                    $_SESSION['judge_category'] = $user_data['category'];
                     header("Location: Projects_view_judge.php");
                     die;
                 }
