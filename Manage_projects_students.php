@@ -21,6 +21,7 @@
     session_start();
 
     include_once 'dbconnect.php';
+     include('student_navbar.php');
     
         $query2 = "SELECT * FROM groups WHERE student_id =2";
         $result2 = mysqli_query($conn,$query2);
@@ -36,8 +37,15 @@
     
     
     ?>
-
     <h2>Your Projects</h2>
+    <div class="card text-center">
+
+        <div class="card-body">
+    
+    
+
+
+    
     <table align="center" style="width:90%; line-height:200%;"> 
 	<tr> 
 		
@@ -79,8 +87,10 @@
     }
     ?>
     </table>
-
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    </div>
+  
+  </div>
+    <button type="button" class="btn btn-succes" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                        Add project
                     </button>
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
