@@ -29,7 +29,7 @@ function getData() {
 
       }
     };
-    xmlhttp.open("GET","api/judge_api.php?room_no="+room_no,true);
+    xmlhttp.open("GET","../api/judge_api.php?room_no="+room_no,true);
     xmlhttp.send();
 
     

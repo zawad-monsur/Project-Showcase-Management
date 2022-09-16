@@ -15,7 +15,7 @@ include_once 'dbconnect.php';
 <body>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
-<form action = "api/marks_update.php" method= "post">
+<form action = "../api/marks_update.php" method= "post">
 Project Idea : <input type="int" name="idea"/>
 </br>
 Features : <input type="int" name="features"/>

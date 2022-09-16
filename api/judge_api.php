@@ -1,10 +1,11 @@
 <?php
     error_reporting(0);
+    session_start();
     ini_set('display_errors', 0);
     $room_no = $_GET['room_no'];
     include_once 'dbconnect.php';
-
-    $sql = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE category = 'Software Lab' AND p.room_number = $room_no GROUP BY p.project_id";
+    $judge_category =$_SESSION['judge_category'];
+    $sql = "SELECT p.*,g.group_name,g.group_category FROM projects AS p JOIN groups AS g on (p.group_id=g.group_id) WHERE category = '$judge_category' AND p.room_number = $room_no GROUP BY p.project_id";
     $rs = $conn-> query($sql);
     
     
